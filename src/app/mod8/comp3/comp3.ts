@@ -12,7 +12,6 @@ export class Comp3 {
   jokeLength
 
   constructor(private apiService:Mod8service) {
-    this.jokeLength = this.apiService.jokeLength;
 
   }
 }

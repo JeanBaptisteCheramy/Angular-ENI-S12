@@ -10,7 +10,6 @@ export class Mod8service {
   private readonly BASE_URL = 'https://api.chucknorris.io/jokes/random';
   private _joke = signal<Joke | null>(null)
   readonly joke = this._joke.asReadonly()
-  readonly jokeLength = computed(() => this._joke()?.value.length);
 
 
   constructor(private http: HttpClient) {
