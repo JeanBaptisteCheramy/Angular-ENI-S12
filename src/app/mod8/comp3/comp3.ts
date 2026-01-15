@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component} from '@angular/core';
 import {Mod8service} from '../mod8service';
 
 @Component({
@@ -9,7 +8,7 @@ import {Mod8service} from '../mod8service';
   styleUrl: './comp3.css',
 })
 export class Comp3 {
-  jokeLength
+  jokeLength:any
 
   constructor(private apiService:Mod8service) {
 
