@@ -1,0 +1,69 @@
+<h3>Mod 6 demo 1</h3>
+<!--FORM GROUP -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" formControlName="email">
+  @if (form.get('email')?.touched || form.get('email')?.dirty) {
+    @if (form.get('email')?.hasError('required')) {
+      <p class="error">Le Champ est obligatoire</p>
+    }
+    @if (form.get('email')?.hasError('email') && form.get('email')?.dirty) {
+      <p class="error">Le champ n'est pas un email</p>
+    }
+  }
+
+  <label for="password">Password</label>
+  <input type="password" id="password" formControlName="password">
+  @if (form.get('password')?.touched || form.get('password')?.dirty) {
+    @if (form.get('password')?.hasError('required')) {
+      <p class="error">Le Champ est obligatoire</p>
+    }
+    @if (form.get('password')?.hasError('pattern') && form.get('password')?.dirty) {
+      <p class="error">Le champ n'est pas un mot de passe valide (8 caractères minimum a-z A-Z 0-9)</p>
+    }
+  }
+
+
+  <label for="birthdate">Birth date</label>
+  <input type="date" id="birthdate" name="birthdate" formControlName="birthdate">
+  @if (form.get('birthdate')?.touched || form.get('birthdate')?.dirty) {
+    @if (form.get('birthdate')?.hasError('required')) {
+      <p class="error">Le Champ est obligatoire</p>
+    }
+    @if (form.get('birthdate')?.hasError('dateGreaterThan') && form.get('birthdate')?.dirty) {
+      <p class="error">La date ne doit pas être supérieur à aujourd'hui</p>
+    }
+  }
+
+
+
+  <label for="newsletter">Newsletter</label>
+  <input type="checkbox" id="newsletter" name="newsletter" formControlName="newsletter">
+
+  <label for="job">Job</label>
+  <select name="job" id="job" formControlName="job">
+    <option value="admin">Administrateur système</option>
+    <option value="dev">Développeur</option>
+    <option value="chomeur">Chômeur</option>
+  </select>
+
+
+  <label for="note">Note</label>
+  <input type="range" id="note" name="note" min="0" max="10" step="1" formControlName="note">
+  @if (form.get('note')?.hasError('required')) {
+    <p class="error">Le Champ est obligatoire</p>
+  }
+  <button type="submit" [disabled]="form.invalid">Envoyer</button>
+</form>
+<br>
+
+<!--TEMPLATE DRIVEN FORM -->
+
+<form>
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="name" name="name" id="name" (input)="checkName()" >
+
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="name" name="name" id="name" (input)="checkName()" >
+</form>
