@@ -1,0 +1,7 @@
+label, button, input {
+  display: block;
+  margin: 10px 0;
+}
+.error{
+  color: #ca6b6b;
+}

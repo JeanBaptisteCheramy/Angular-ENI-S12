@@ -1,0 +1,12 @@
+<h1>Joke</h1>
+
+<!--  SUBSCRIBE  -->
+<p>Test Joke 1 ( Subscribe ):</p>
+<p> {{ joke | json }}</p>
+<p>Value: {{ joke.value }}</p>
+
+
+<!--  ASYNC  ( recommandé )-->
+<p>Test Joke Oservable ( async pipe ): </p>
+<p>{{ jokeObservable$ | async | json}}</p>
+<p>Value: {{ (jokeObservable$ | async)?.value}}</p>
